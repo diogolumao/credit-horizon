@@ -2,11 +2,9 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-# Instala dependências básicas do sistema (Adicionado o curl para o Healthcheck)
+# Instala dependências básicas do sistema (Apenas o essencial e o curl para o Healthcheck)
 RUN apt-get update && apt-get install -y \
     build-essential \
-    software-properties-common \
-    git \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
