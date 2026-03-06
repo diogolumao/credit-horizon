@@ -8,7 +8,7 @@ DESCRIPTION = "Aplicação de Machine Learning (Random Forest) para análise pre
 KEYWORDS = "Machine Learning, Risco de Crédito, Random Forest, Python, Streamlit, Data Science, Semantix, EBAC"
 AUTHOR = "Diogo Alves"
 IMAGE_URL = "https://avatars.githubusercontent.com/u/30360463?v=4" # Pode manter sua foto ou colocar um print do dashboard
-SITE_URL = "https://credit.diogolumao.com.br"
+SITE_URL = "https://credit-horizon.diogolumao.com.br"
 
 # --- SCRIPT DO MICROSOFT CLARITY ---
 CLARITY_SCRIPT = """
