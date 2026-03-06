@@ -60,6 +60,8 @@ credit_horizon/
 ├── requirements.txt        # Dependências do Python
 └── README.md               # Documentação do projeto
 🚀 Como Executar Localmente
+```
+
 Clone o repositório:
 
 Bash
@@ -67,23 +69,40 @@ git clone [https://github.com/diogolumao/credit-horizon.git](https://github.com/
 cd credit-horizon
 Crie um ambiente virtual e instale as dependências:
 
-Bash
+
+```Bash
 python -m venv venv
 source venv/bin/activate  # No Windows: venv\Scripts\activate
 pip install -r requirements.txt
+```
+
 Treine o modelo (Gera os artefatos na pasta /models):
 
-Bash
+
+```Bash
 python ml_engine.py
+```
+
 Execute a aplicação:
-
-Bash
+```Bash
 streamlit run app.py
-👨‍💻 Autor e Declaração
-Diogo Alves
+```
 
-Portfólio: diogolumao.com.br
+### 👨‍💻 Autor
 
-LinkedIn: in/diogoalves-dados
+<a href="https://diogolumao.com.br">
+ <img style="border-radius: 50%;" src="https://github.com/diogolumao.png" width="100px;" alt=""/>
+</a>
+
+<br />
+
+**Diogo Alves** *Analista de Dados & Analytics Engineer*
+
+Entre em contato:
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/diogoalves-dados/)
+[![Portfólio](https://img.shields.io/badge/Portfólio-Website-black?style=for-the-badge&logo=vercel&logoColor=white)](https://diogolumao.com.br)
+
+Desenvolvido com 💙 e Python.
 
 Eu, Diogo Alves, autorizo a cessão do meu projeto em favor da Semantix, bem como a divulgação do meu nome como autor responsável pelo projeto, uma vez que será possível incluir esse trabalho em meu portfólio. Autorizo também a divulgação dos meus contatos para a Semantix para fins exclusivos de contato profissional decorrente deste projeto.
