@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  credit-horizon:
+    build: .
+    container_name: credit-horizon
+    restart: always
+    environment:
+      - TZ=America/Sao_Paulo  # Define o fuso horário para o Python
+    expose:
+      - "8501"  # Expõe apenas para a rede interna (Streamlit padrão)
+    volumes:
+      - ./:/app  # Mapeia a pasta atual para facilitar edições rápidas
+      - /etc/localtime:/etc/localtime:ro # Sincroniza o relógio do container com a VPS
+      - /etc/timezone:/etc/timezone:ro
+    networks:
+      - rede_interna
+
+# Rede externa (O Nginx Proxy Manager deve estar conectado a ela)
+networks:
+  rede_interna:
+    external: true

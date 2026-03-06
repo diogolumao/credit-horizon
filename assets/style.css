@@ -1,0 +1,68 @@
+/* assets/style.css */
+
+/* Importar fonte moderna (opcional, mas recomendado) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Cor de Fundo Geral */
+.stApp {
+    background-color: #F8F9FA;
+}
+
+/* Barra Lateral (Sidebar) */
+[data-testid="stSidebar"] {
+    background-color: #ffffff;
+    border-right: 1px solid #e0e0e0;
+}
+
+/* Títulos Principais */
+h1, h2, h3 {
+    color: #2E004E; /* Roxo Escuro Semantix */
+    font-weight: 700;
+}
+
+/* Botões (Primary) */
+div.stButton > button:first-child {
+    background-color: #6200EA; /* Roxo Vibrante */
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+div.stButton > button:first-child:hover {
+    background-color: #3700B3;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Cards de Métricas */
+[data-testid="stMetricValue"] {
+    font-size: 1.8rem !important;
+    color: #6200EA;
+}
+
+/* Rodapé Customizado */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+    color: #666;
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.85rem;
+    z-index: 999;
+}
+
+.footer a {
+    color: #6200EA;
+    text-decoration: none;
+    font-weight: 600;
+}
