@@ -44,7 +44,7 @@ encoders = pkg['encoders']
 features_order = pkg['features']
 
 # --- 3. BARRA LATERAL (Navegação) ---
-st.sidebar.image("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png", width=50)
+st.sidebar.image("https://cdn-icons-png.flaticon.com/512/2822/2822582.png", width=60)
 st.sidebar.title("Credit Horizon")
 st.sidebar.markdown("**Powered by Semantix**")
 st.sidebar.divider()

@@ -1,0 +1,16 @@
+[theme]
+# Trava o tema em modo Claro (Light) para garantir contraste perfeito
+base="light"
+
+# Cor principal (Botões e destaques). Sugestão: Vermelho/Rosa padrão do Streamlit ou Azul Corporativo
+primaryColor="#FF4B4B" 
+
+# Cores de fundo
+backgroundColor="#FFFFFF"
+secondaryBackgroundColor="#F0F2F6" # Fundo da sidebar e dos cards
+
+# Cor da fonte (Garante que o texto fique escuro no fundo claro)
+textColor="#262730"
+
+# Fonte do texto
+font="sans serif"
