@@ -1,0 +1,36 @@
+# ========================
+# PYTHON & AMBIENTES
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# ========================
+# JUPYTER NOTEBOOKS
+# ========================
+.ipynb_checkpoints/
+
+# ========================
+# IDEs & SISTEMA OPERACIONAL
+# ========================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ========================
+# CONFIGURAÇÕES LOCAIS & SECRETS
+# ========================
+.env
+docker-compose.local.yml
+
+# ========================
+# ARTEFATOS DE BUILD/LOGS
+# ========================
+*.log
+build/
+dist/
+*.egg-info/
