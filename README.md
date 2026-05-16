@@ -12,7 +12,7 @@
 *O escopo original deste projeto previa o uso do Looker Studio para visualização de dados. No entanto, visando entregar uma solução mais aderente às práticas de Engenharia de Machine Learning e Produtos de Dados (core business da Semantix), optou-se pelo desenvolvimento de uma Aplicação Web Full-Stack preditiva utilizando Python e Streamlit.*
 
 * **De Descritivo para Preditivo:** Ferramentas de BI tradicionais olham para o passado. O uso do Python permitiu integrar um modelo de Inteligência Artificial em tempo real, transformando um dashboard estático em um **Simulador de Risco Ativo**.
-* **Engenharia de Ponta a Ponta:** O projeto simula um ciclo real corporativo: ingestão de dados, engenharia de features, modelagem estatística, containerização (Docker) e deploy em nuvem.
+* **Engenharia de Ponta a Ponta:** O projeto simula um ciclo real corporativo: ingestão de dados, engenharia de features, modelagem estatística, containerização (Docker) e deploy automatizado (CI/CD) em nuvem via GitHub Actions.
 
 ---
 
@@ -26,7 +26,7 @@ Instituições financeiras enfrentam um dilema clássico de **assimetria de info
 ## 📊 Fonte de Dados e Insights (EDA)
 Utilizamos o dataset **South German Credit Data**, referência global em análise de risco, extraído do *UCI Machine Learning Repository*. 
 * **Privacidade:** Dados públicos e totalmente anonimizados (LGPD Compliant).
-* **Automação:** Os dados são consumidos e pré-processados pelo script `ml_engine.py`.
+* **Análise Exploratória:** Disponível e documentada no notebook `notebooks/01_eda_credit.ipynb`.
 
 ### Principais Insights Acionáveis:
 1. **O Fator Tempo (Duração):** Empréstimos com prazos superiores a 48 meses apresentam taxa de inadimplência 40% maior. *Ação recomendada: Exigir garantias reais para aprovações longas.*
@@ -43,65 +43,72 @@ Em vez de depender de uma única regra para aprovar ou negar crédito, o algorit
 
 ---
 
-## 📂 Estrutura do Projeto
+## 📂 Arquitetura de Software e Estrutura de Pastas
+O projeto foi modularizado seguindo as melhores práticas de Engenharia de Software e Ciência de Dados, separando as responsabilidades de modelagem, interface visual e infraestrutura:
 
 ```text
 credit_horizon/
-│
+├── .github/workflows/      # Automação de CI/CD para deploy na VPS
 ├── .streamlit/             # Configurações de tema da interface
 ├── assets/                 # Arquivos CSS e assets visuais
-├── data/                   # Base de dados (german_credit_data.csv)
+├── data/                   
+│   ├── raw/                # Base de dados bruta (imutável)
+│   └── processed/          # Dados limpos e preparados
 ├── models/                 # Modelo treinado e encoders (credit_model.pkl)
-├── utils/                  # Scripts auxiliares (ex: plots.py para gráficos)
+├── notebooks/              # Ambiente de descoberta e experimentação
+│   └── 01_eda_credit.ipynb # Análise Exploratória de Dados documentada
+├── src/                    # Lógica Core (Backend ML)
+│   ├── data_prep.py        # Pipelines de limpeza e encoding
+│   ├── train.py            # Script para treinamento e validação do modelo
+│   └── predict.py          # Lógica de inferência para consumo no frontend
+├── utils/                  # Scripts auxiliares (ex: plots.py para gráficos Plotly)
 ├── app.py                  # Código principal da aplicação Web (Streamlit)
-├── ml_engine.py            # Script de ingestão, EDA, treino e persistência do modelo
-├── docker-compose.yml      # Orquestração de containers
-├── Dockerfile              # Imagem da aplicação
-├── requirements.txt        # Dependências do Python
-└── README.md               # Documentação do projeto
-🚀 Como Executar Localmente
+├── docker-compose.yml      # Orquestração do container (Produção VPS)
+├── docker-compose.local.yml# Orquestração do container (Laboratório Local)
+├── Dockerfile              # Imagem padrão do projeto
+└── requirements.txt        # Dependências Python
 ```
+
+🚀 Como Executar Localmente
+Você pode executar a aplicação utilizando o Docker (recomendado) ou configurando um ambiente virtual Python manualmente.
 
 Clone o repositório:
 
 Bash
 git clone [https://github.com/diogolumao/credit-horizon.git](https://github.com/diogolumao/credit-horizon.git)
 cd credit-horizon
-Crie um ambiente virtual e instale as dependências:
-
+Opção 1: Via Docker (Recomendado)
+Levante o contêiner utilizando a configuração de desenvolvimento local:
 
 ```Bash
-python -m venv venv
-source venv/bin/activate  # No Windows: venv\Scripts\activate
+docker compose -f docker-compose.local.yml up -d --build
+```
+Acesse a aplicação no navegador via: http://localhost:8530
+
+
+Opção 2: Via Ambiente Virtual (Python)
+Crie o ambiente, instale as dependências e rode a aplicação:
+
+```Bash
+python -m venv .venv
+source .venv/bin/activate  # No Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
-
-Treine o modelo (Gera os artefatos na pasta /models):
-
+(Opcional) Retreine o modelo gerando novos artefatos na pasta /models:
 
 ```Bash
-python ml_engine.py
+python src/train.py
 ```
+Suba o aplicativo Streamlit:
 
-Execute a aplicação:
 ```Bash
 streamlit run app.py
 ```
 
-### 👨‍💻 Autor
-
-<a href="https://diogolumao.com.br">
- <img style="border-radius: 50%;" src="https://github.com/diogolumao.png" width="100px;" alt=""/>
-</a>
-
-<br />
-
-**Diogo Alves** *Analista de Dados & Analytics Engineer*
+👨‍💻 Autor
+Diogo Alves Analista de Dados & Analytics Engineer
 
 Entre em contato:
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/diogoalves-dados/)
-[![Portfólio](https://img.shields.io/badge/Portfólio-Website-black?style=for-the-badge&logo=vercel&logoColor=white)](https://diogolumao.com.br)
 
 Desenvolvido com 💙 e Python.
 
